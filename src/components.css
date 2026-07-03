@@ -89,3 +89,166 @@
 .footer-socials { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 .footer-link-text { color: #64748b; text-decoration: none; font-size: 14px; transition: 0.3s; }
 .footer-link-text:hover { color: var(--accent-cyan); }
+/* ==========================================
+   INTERFAZ COMPLETA DEL BOT ASISTENTE FLOTANTE
+   ========================================== */
+.bot-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999; /* Asegura flotar por encima del canvas y las tarjetas */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Botón disparador circular */
+.bot-trigger-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(34, 211, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bot-trigger-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Ventana de Conversación */
+.bot-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 320px;
+  max-width: 85vw;
+  height: 450px;
+  background: #0b101d;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUpBot 0.3s ease;
+}
+
+@keyframes slideUpBot {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Encabezado del Asistente */
+.bot-header {
+  background: linear-gradient(to right, #0d1527, #131d35);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bot-avatar-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #4ade80; /* Color verde activo */
+  border-radius: 50%;
+  box-shadow: 0 0 8px #4ade80;
+}
+
+.bot-header h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+.bot-header span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* Cuerpo del Chat */
+.bot-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #070a13;
+}
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.msg-bot {
+  background-color: #111726;
+  color: var(--text-primary);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  border: 1px solid var(--border-color);
+}
+
+.msg-user {
+  background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+/* Opciones de Preguntas frecuentes */
+.bot-footer-faq {
+  padding: 12px;
+  background: #0b101d;
+  border-top: 1px solid var(--border-color);
+}
+
+.faq-hint {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.faq-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 110px;
+  overflow-y: auto;
+}
+
+.faq-btn {
+  background: #111726;
+  color: var(--accent-cyan);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.faq-btn:hover {
+  background: rgba(34, 211, 238, 0.08);
+  border-color: var(--accent-cyan);
+}
