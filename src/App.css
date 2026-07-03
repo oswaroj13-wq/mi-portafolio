@@ -1,0 +1,45 @@
+:root {
+  --bg-main: #070a13;
+  --bg-card: #0b101d;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent-purple: #a855f7;
+  --accent-cyan: #22d3ee;
+  --border-color: #1e293b;
+}
+
+.portfolio-container {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.global-network-background {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0; pointer-events: none;
+}
+
+.hero-section, .services-section, .experience-section, .education-section, .portfolio-carousel-section, .contact-section {
+  position: relative; z-index: 1;
+}
+
+/* MEDIAS QUERIES RESPONSIVE (Celulares inteligentes) */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.25rem !important; line-height: 1.2; }
+  .hero-subtitle { font-size: 1rem !important; }
+  .hero-grid { padding: 40px 16px !important; gap: 24px !important; }
+  .hero-photo-wrapper { width: 200px !important; height: 200px !important; }
+  .services-grid, .education-box { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .experience-item { flex-direction: column !important; gap: 12px !important; padding: 16px !important; }
+  .exp-meta { min-width: auto !important; }
+  .form-row { flex-direction: column !important; gap: 16px !important; }
+  .section-header h2 { font-size: 1.75rem !important; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .hero-title { font-size: 3.5rem !important; }
+}
